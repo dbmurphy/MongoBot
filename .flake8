@@ -1,0 +1,28 @@
+[flake8]
+max-line-length = 100
+ignore = 
+    # Line break before binary operator (conflicts with black)
+    W503,
+    # Line too long (handled by black)
+    E501,
+    # Module level import not at top of file (acceptable in test files)
+    E402
+exclude = 
+    .git,
+    __pycache__,
+    .pytest_cache,
+    .mypy_cache,
+    venv,
+    build,
+    dist,
+    *.egg-info
+
+# Per-file ignores for specific cases
+per-file-ignores =
+    # Test files can have imports not at top
+    test_*.py:E402
+    temp_test.py:E402
+    # Setup files can have various issues
+    setup.py:E402,F401
+    # Config files can have unused imports
+    config*.py:F401 

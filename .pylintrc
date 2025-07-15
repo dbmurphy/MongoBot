@@ -1,0 +1,89 @@
+[MASTER]
+# Add paths to PYTHONPATH
+init-hook='import sys; sys.path.append(".")'
+
+# Files or directories to be skipped
+ignore=.git,__pycache__,.pytest_cache,.mypy_cache,venv,build,dist
+
+[MESSAGES CONTROL]
+# Disable specific warnings that are not relevant for this project
+disable=
+    # Documentation related (we have docstrings where needed)
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    
+    # Code structure (these are design choices)
+    too-few-public-methods,
+    too-many-instance-attributes,
+    too-many-branches,
+    too-many-statements,
+    too-many-locals,
+    too-many-return-statements,
+    too-many-nested-blocks,
+    
+    # Exception handling (broad exceptions are often intentional)
+    broad-exception-caught,
+    
+    # Logging (f-strings in logging are fine for this project)
+    logging-fstring-interpolation,
+    
+    # Import issues (some are intentional)
+    wrong-import-position,
+    import-outside-toplevel,
+    
+    # Style issues that conflict with black or are not important
+    line-too-long,
+    
+    # Code duplication (some duplication is acceptable)
+    duplicate-code,
+    
+    # Unused arguments (some are required by interfaces)
+    unused-argument,
+    
+    # Protected access (sometimes needed for testing)
+    protected-access,
+    
+    # Else after return (sometimes more readable)
+    no-else-return,
+    
+    # Subprocess without check (handled appropriately)
+    subprocess-run-check,
+    
+    # Open without encoding (not critical for this project)
+    unspecified-encoding,
+    
+    # Constant naming (some constants are fine lowercase)
+    invalid-name
+
+[FORMAT]
+# Maximum number of characters on a single line
+max-line-length=100
+
+[VARIABLES]
+# Allow unused variables when they start with _
+dummy-variables-rgx=^_.*$
+
+[SIMILARITIES]
+# Minimum lines number of a similarity.
+min-similarity-lines=10
+
+[BASIC]
+# Good variable names which should always be accepted
+good-names=i,j,k,ex,Run,_,id,db,ui,ok
+
+[DESIGN]
+# Maximum number of arguments for function/method
+max-args=10
+
+# Maximum number of locals for function/method body
+max-locals=20
+
+# Maximum number of return/yield for function/method body
+max-returns=10
+
+# Maximum number of branch for function/method body
+max-branches=15
+
+# Maximum number of statements in function/method body
+max-statements=60 
